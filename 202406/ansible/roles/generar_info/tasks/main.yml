@@ -1,0 +1,24 @@
+---
+- name: Crear carpeta alumno
+  file:
+    path: /tmp/2do_parcial/alumno
+    state: directory
+    mode: '0755'
+    recurse: yes
+
+- name: Crear carpeta equipo
+  file:
+    path: /tmp/2do_parcial/equipo
+    state: directory
+    mode: '0755'
+    recurse: yes
+
+- name: Generar datos del alumno con template
+  template:
+    src: datos_alumno.j2
+    dest: /tmp/2do_parcial/alumno/datos_alumno.txt
+
+- name: Generar datos del equipo con template
+  template:
+    src: datos_equipo.j2
+    dest: /tmp/2do_parcial/equipo/datos_equipo.txt
